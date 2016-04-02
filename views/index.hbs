@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="pizzaMapper">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <base href="/">
+  <!-- CSS -->
+    <link rel="stylesheet" href="/public/bower_components/bootstrap/dist/css/bootstrap.css"/>
+    <link rel="stylesheet" href="stylesheets/main.css">
+    <!-- Holder JS -->
+    <!-- <script type="text/javascript" src="/public/bower_components/holderjs/holder.js"></script> -->
+    <!-- Google Maps API -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCAS28jv999ojgYl1JERa4UAU9T1zsdWSk"></script>
+    <!-- Modernizr -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+    <!-- JS Source -->
+    <script type="text/javascript" src="/public/bower_components/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="/public/bower_components/angular/angular.js"></script>
+    <script type="text/javascript" src="/public/bower_components/angular-route/angular-route.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular-resource.js"></script>
+    <script type="text/javascript" src="/public/bower_components/angular-geolocation/geolocation.js"></script>
+    <script type="text/javascript" src="/javascripts/app.js"></script>
+  <title>Pizza</title>
+</head>
+<body>
+  <div id="main">
+    <section ng-controller="PizzaController">
+      <h1>Pizza Mapper</h1>
+
+    <div ui-view></div>
+
+    </section>
+  </div>
+</body>
+</html>
