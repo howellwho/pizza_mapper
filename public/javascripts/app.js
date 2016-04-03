@@ -1,9 +1,22 @@
 console.log('linked')
-var app = angular.module('pizzaMapper', ['ui.router', 'ngResource']);
+var app = angular.module('pizzaMapper', [
+  'ui.router',
+  'ngResource',
+  'map',
+  'ngMap'
+]);
 app.config(config);
-app.controller('PizzaController', PizzaController);
+app.controller('HomeController', HomeController);
 
-function PizzaController() {
+app.controller('HomeController', function(NgMap) {
+  NgMap.getMap().then(function(map) {
+    console.log(map.getCenter());
+    console.log('markers', map.markers);
+    console.log('shapes', map.shapes);
+  });
+});
+
+function HomeController() {
   this.test = "test";
 }
 
@@ -21,7 +34,7 @@ function config($stateProvider, $urlRouterProvider, $locationProvider) {
      $stateProvider
       .state('home', {
         url: "/",
-        controller: 'PizzaController',
+        controller: 'HomeController',
         controllerAs: 'home',
         templateUrl: 'templates/home.html'
       });

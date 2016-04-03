@@ -1,0 +1,14 @@
+body {
+	font-family: 'Oswald', sans-serif;
+  padding-top: 20px;
+}
+
+h1 {
+  text-align: center;
+}
+
+#map {
+	border: 1px solid #9d9d9d;
+	width:650px;
+	height:560px;
+}

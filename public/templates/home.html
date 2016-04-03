@@ -9,33 +9,33 @@
     <!-- Map and Side Panel -->
     <div class="row content">
         <!-- Google Map -->
-        <div class="col-md-7">
-            <!-- <div id="map"><img src="holder.js/645x645"></div> -->
-        </div>
+          <div class="col-md-7">
+            <div id="map" ng-map center="37.77,-122.43" zoom="11  "></ng-map> </div>
+          </div>
         <!-- Side Panel -->
         <div class="col-md-5">
             <div class="panel panel-default">
                 <!-- Panel Title -->
                 <div class="panel-heading">
-                    <h2 class="panel-title text-center">Sign Up <span class="glyphicon glyphicon-map-marker"></span></h2>
+                    <h2 class="panel-title text-center">Top Pizza Lists of San Francisco <span class="glyphicon glyphicon-map-marker"></span></h2>
                 </div>
                 <!-- Panel Body -->
                 <div class="panel-body">
                     <!-- Creates Form (novalidate disables HTML validation, Angular will control) -->
                     <form name ="addForm" novalidate>
                         <!-- Text Boxes and Other User Inputs. Note ng-model binds the values to Angular $scope -->
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label for="username">Username <span class="badge">All fields required</span></label>
                             <input type="text" class="form-control" id="username" placeholder="OldandGold" ng-model="formData.username" required>
-                        </div>
-                        <label class="radio control-label">Gender</label>
+                        </div> -->
+                        <!-- <label class="radio control-label">Gender</label>
                         <div class="radio">
                             <label>
                                 <input type="radio" name="optionsRadios" id="radiomale" value="Male" ng-model="formData.gender">
                                 Male
                             </label>
-                        </div>
-                        <div class="radio" required>
+                        </div> -->
+                        <!-- <div class="radio" required>
                             <label>
                                 <input type="radio" name="optionsRadios" id="radiofemale" value="Female" ng-model="formData.gender">
                                 Female
@@ -50,25 +50,35 @@
                         <div class="form-group">
                             <label for="age">Age</label>
                             <input type="number" class="form-control" id="age" placeholder="72" ng-model="formData.age" required>
-                        </div>
+                        </div> -->
                         <div class="form-group">
-                            <label for="language">Favorite Language</label>
-                            <input type="text" class="form-control" id="language" placeholder="Fortran" ng-model="formData.favlang" required>
+                            <label for="language">Popular Lists </label>
+                              <ul>
+                                <li><a href="http://sfist.com/2015/09/17/the_best_pizza_in_san_francisco.php" + target='_blank'>SFist Guide</a></li>
+                                <li><a href="http://www.yelp.com/search?find_desc=Best+Pizza&find_loc=San+Francisco%2C+CA" + target='_blank'>Yelp SF Top 10</a></li>
+                                <li><a href="http://www.yelp.com/search?find_desc=Best+Pizza&find_loc=Oakland,+CA" + target='_blank'>Yelp Oakland Top 10</a></li>
+                                <li><a href="http://sf.eater.com/maps/san-franciscos-25-most-iconic-pizzerias" + target='_blank'>Eater SF Top 25</a></li>
+                                <li><a href="https://www.thrillist.com/eat/san-francisco/the-best-sf-pizzas-by-hood-thrillist-san-francisco" + target='_blank'>Thrillist Top Pizzas</a></li>
+                                <li><a href="http://www.thebolditalic.com/articles/4693-read-this-if-youre-obsessed-with-oaklands-pizza" + target='_blank'>Bold Italic Oakland Pizza's</a></li>
+
+                                  <!-- <li><a href="/logout">LOGOUT</a></li> -->
+                              </ul>
+                            <!-- <input type="text" class="form-control" id="language" placeholder="Fortran" ng-model="formData.favlang" required> -->
                         </div>
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label for="latitude">Latitude</label>
                             <input type="text" class="form-control" id="latitude" value="39.500" ng-model="formData.latitude" readonly>
-                        </div>
-                        <div class="form-group">
+                        </div> -->
+                        <!-- <div class="form-group">
                             <label for="longitude">Longitude</label>
                             <input type="text" class="form-control" id="longitude" value="-98.350" ng-model="formData.longitude" readonly>
                         </div>
                         <div class="form-group">
                             <label for="verified">HTML5 Verified Location? <span><button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-refresh"></span></button></span></label>
                             <input type="text" class="form-control" id="verified" placeholder= "Nope (Thanks for spamming my map...)" ng-model="formData.htmlverified" readonly>
-                        </div>
+                        </div> -->
                         <!-- Submit button. Note that its tied to createUser() function from addCtrl. Also note ng-disabled logic which prevents early submits.  -->
-                        <button type="submit" class="btn btn-danger btn-block" ng-disabled="addForm.$invalid">Submit</button>
+                        <!-- <button type="submit" class="btn btn-danger btn-block" ng-disabled="addForm.$invalid">Submit</button> -->
                     </form>
                 </div>
             </div>
@@ -77,7 +87,6 @@
     <hr/>
     <!-- Footer -->
     <div class="footer">
-        <p class="text-center"><span class="glyphicon glyphicon-check"></span> Created by Ahmed Haque for Scotch IO -
-            <!-- <a href="https://scotch.io/">App Tutorial</a> | <a href="https://github.com/afhaque/MeanMapAppV2.0">Github Repo</a></p> -->
+        <p class="text-center"><span class="glyphicon glyphicon-check"></span> Pizza Mapper 2016
     </div>
 </div>
