@@ -1,0 +1,21 @@
+{
+  "name": "achan.cordova.yelp",
+  "dependencies": {
+    "angular": "1.2.14",
+    "oauth-signature-js": "*"
+  },
+  "devDependencies": {
+    "angular-mocks": "1.2.14"
+  },
+  "homepage": "https://github.com/achan/achan.cordova.yelp",
+  "_release": "017ad8fe8b",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "017ad8fe8baf448f6ea60f63ed518dce9a29792c"
+  },
+  "_source": "git://github.com/achan/achan.cordova.yelp.git",
+  "_target": "*",
+  "_originalSource": "achan.cordova.yelp",
+  "_direct": true
+}

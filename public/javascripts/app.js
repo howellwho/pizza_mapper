@@ -1,26 +1,40 @@
-console.log('linked')
 var app = angular.module('pizzaMapper', [
   'ui.router',
   'ngResource',
-  'map',
-  'ngMap'
+  'ngMap',
+  // 'map',
 ]);
-app.config(config);
-app.controller('HomeController', HomeController);
 
-app.controller('HomeController', function(NgMap) {
+app.config(config);
+app.controller('HomeController', function($scope, $http, NgMap){
+
+//pings Google places and populates pin on map
+  var vm = this;
+  vm.types = "['establishment']";
+  vm.placedChanged = function() {
+    vm.place = this.getPlace();
+    console.log('location', vm.place.geometry.location);
+    vm.map.setCenter(vm.place.geometry.location);
+  }
+  vm.search = function(){
+    console.log('clicked searching... ', vm.address);
+    this.address = vm.address;
+  }
+
+//populates map on page
   NgMap.getMap().then(function(map) {
+    vm.map = map;
     console.log(map.getCenter());
     console.log('markers', map.markers);
     console.log('shapes', map.shapes);
   });
+
+
 });
 
-function HomeController() {
-  this.test = "test";
-}
 
-config.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];
+
+app.config.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];
 function config($stateProvider, $urlRouterProvider, $locationProvider) {
     console.log('config');
     //this allows us to use routes without hash params!

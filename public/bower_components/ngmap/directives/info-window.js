@@ -132,9 +132,10 @@
       mapController.addObject('infoWindows', infoWindow);
       mapController.observeAttrSetObj(orgAttrs, attrs, infoWindow);
 
-      mapController.showInfoWindow = 
+      mapController.showInfoWindow =
       mapController.map.showInfoWindow = mapController.showInfoWindow ||
         function(p1, p2, p3) { //event, id, marker
+          console.log('click heard');
           var id = typeof p1 == 'string' ? p1 : p2;
           var marker = typeof p1 == 'string' ? p2 : p3;
           if (typeof marker == 'string') {
