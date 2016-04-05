@@ -36,34 +36,55 @@ app.controller('HomeController', function ($scope, $http, NgMap){
 });
 
 
-app.controller('SignupController', function(){
-  console.log('hello from signup controller');
+app.controller('SignupController', function($location, Account){
+  var vm = this;
+  vm.new_user = {};//form data
+
+  vm.signup = function(){
+    Account
+      .signup(vm.new_user)
+      .then(
+        function (response) {
+          //clear sign up form
+          vm.new_user = {};
+          //redirect
+          $location.path('/profile');
+        }
+      );
+  };
 });
 
-app.controller('LoginController', function(){
-  console.log('login controller live');
+app.controller('LoginController', function($location, Account){
+  var vm = this;
+  vm.new_user = {}; //form data
+
+  vm.login = function(){
+    Account
+     .login(vm.new_user)
+     .then(function(){
+       //clear form
+       vm.new_user = {};
+       $location.path('/profile');
+     })
+  };
 });
 
-app.controller('LogoutController', function(){
+app.controller('LogoutController', function($location, Account){
+  Account.logout()
+  $location.path('/');
 });
 
-app.controller('MainController', function(){
+app.controller('MainController', function(Account){
+  vm = this;
+  vm.currentUser = function(){
+    return Account.currentUser();
+  }
 });
 
-// MainController.$inject = ["Account"]; // minification protection
-// function MainController (Account) {
-//   var vm = this;
-//
-//   vm.currentUser = function() {
-//    return Account.currentUser();
-//  };
-//
-// }
 app.controller('ProfileController', function(){
 });
 
-
-// app.service('Account', Account)
+// app.service(Account);
 app.config(configRoutes);
 
 //routes
@@ -144,4 +165,100 @@ function configRoutes($stateProvider, $urlRouterProvider, $locationProvider) {
         return deferred.promise;
       }
 
-    }
+    };
+    //////////////
+    // Services //
+    //////////////
+
+    Account.$inject = ["$http", "$q", "$auth"]; // minification protection
+    function Account($http, $q, $auth) {
+      var self = this;
+      self.user = null;
+
+      self.signup = signup;
+      self.login = login;
+      self.logout = logout;
+      self.currentUser = currentUser;
+      self.getProfile = getProfile;
+      self.updateProfile = updateProfile;
+
+      function signup(userData) {
+        return (
+        $auth.signup(userData)
+          .then(function(response){
+            $auth.setToken(response.data.token);
+          })
+        )
+    };
+
+      function login(userData) {
+        return (
+          $auth
+            .login(userData) // login (https://github.com/sahat/satellizer#authloginuser-options)
+            .then(
+              function onSuccess(response) {
+                //set token (https://github.com/sahat/satellizer#authsettokentoken)
+                $auth.setToken(response.data.token)
+              },
+
+              function onError(error) {
+                console.error(error);
+              }
+            )
+        );
+      }
+
+      function logout() {
+        // returns a promise!!!
+        //logout the user by removing their jwt token (using satellizer)
+        return (
+          $auth
+            .logout()
+            .then(function() {
+              self.user = null;
+            })
+          // Make sure to also wipe the user's data from the application:
+          // self.user = null;
+          // returns a promise!!!
+        )
+      }
+
+      function currentUser() {
+        if ( self.user ) { return self.user; }
+        if ( !$auth.isAuthenticated() ) { return null; }
+
+        var deferred = $q.defer();
+        getProfile().then(
+          function onSuccess(response) {
+            self.user = response.data;
+            deferred.resolve(self.user);
+          },
+
+          function onError() {
+            $auth.logout();
+            self.user = null;
+            deferred.reject();
+          }
+        )
+        self.user = promise = deferred.promise;
+        return promise;
+
+      }
+
+      function getProfile() {
+        return $http.get('/api/me');
+      }
+
+      function updateProfile(profileData) {
+        return (
+          $http
+            .put('/api/me', profileData)
+            .then(
+              function (response) {
+                self.user = response.data;
+              }
+            )
+        );
+      }
+
+  }
