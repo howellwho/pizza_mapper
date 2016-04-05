@@ -1,13 +1,13 @@
 # Pizza Mapper
 
-Technology:
+-Technology:
 
-MongoDB/Mongoose
-Express
-Angular
-Node.js
+-MongoDB/Mongoose
+-Express
+-Angular
+-Node.js
 
-Modules:
+-Modules:
 
-NgMap: https://ngmap.github.io/
-Satellizer/JSON Web Tokens :https://github.com/sahat/satellizer
+-NgMap: https://ngmap.github.io/
+-Satellizer/JSON Web Tokens :https://github.com/sahat/satellizer
