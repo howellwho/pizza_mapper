@@ -2,12 +2,21 @@ var app = angular.module('pizzaMapper', [
   'ui.router',
   'ngResource',
   'ngMap',
-  'ngAnimate'
-  // 'map'
+  'ngAnimate',
+  'satellizer'
 ]);
 
 app.config(config);
+
+// app.controller('MainController', MainController)
+// app.controller('LoginController', LoginController)
+// app.controller('SignupController', SignupController)
+// app.controller('LogoutController', LogoutController)
+// app.controller('ProfileController', ProfileController)
+// app.service('Account', Account)
+
 app.controller('HomeController', function($scope, $http, NgMap){
+
 
 //pings Google places and populates pin on map
   var vm = this;
@@ -35,7 +44,6 @@ app.controller('HomeController', function($scope, $http, NgMap){
     console.log('shapes', map.shapes);
   });
 
-
 });
 
 
@@ -57,4 +65,41 @@ function config($stateProvider, $urlRouterProvider, $locationProvider) {
         controllerAs: 'home',
         templateUrl: 'templates/home.html'
       });
+
+    //   .state('signup', {
+    //   url: '/signup',
+    //   templateUrl: 'templates/signup.html',
+    //   controller: 'SignupController',
+    //   controllerAs: 'sc',
+    //   resolve: {
+    //     skipIfLoggedIn: skipIfLoggedIn
+    //   }
+    // })
+    // .state('login', {
+    //   url: '/login',
+    //   templateUrl: 'templates/login.html',
+    //   controller: 'LoginController',
+    //   controllerAs: 'lc',
+    //   resolve: {
+    //     skipIfLoggedIn: skipIfLoggedIn
+    //   }
+    // })
+    // .state('logout', {
+    //   url: '/logout',
+    //   template: null,
+    //   controller: 'LogoutController',
+    //   resolve: {
+    //     loginRequired: loginRequired
+    //   }
+    // })
+    // .state('profile', {
+    //   url: '/profile',
+    //   templateUrl: 'templates/profile.html',
+    //   controller: 'ProfileController',
+    //   controllerAs: 'profile',
+    //   resolve: {
+    //     loginRequired: loginRequired
+    //   }
+    // })
+
   }

@@ -1,30 +1,29 @@
 <div class="container">
-    <div class="header">
+    <!-- <div class="header">
         <ul class="nav nav-pills pull-right">
             <li active><a href="">Ipsum</a></li>
             <li disabled><a href="">Dipsum</a></li>
         </ul>
-        <!-- <h3 class="text-muted">Helping you fuckers find pizza since 2016</h3> -->
-    </div>
+    </div> -->
     <!-- Map and Side Panel -->
     <div class="row content">
         <!-- Google Map -->
           <div class="col-md-7">
             <ng-map id="map" center="37.77,-122.43" zoom="11">
-              <marker id="marker" position="{{vm.address}}"
-                title="{{address}}"
-                on-click="map.showInfoWindow(event, 'joint')">
-            </marker>
-              <info-window id="joint" visible-on-marker="marker">
-                <div ng-non-bindable id="bodyContent">
-                  <!-- <p><b>Description:</b> -->
-                    <h4>{{vm.place.name}}</h4>
-                    <span> {{vm.address}} </span><br>
-                    <span> {{vm.phone}} </span><br>
-                    <span> {{vm.web}} </span>
-                    <!-- <span><img src='{{vm.pic}}'></span> -->
-                </div>
-              </info-window>
+                <marker id="marker" position="{{vm.address}}"
+                  title="{{address}}"
+                  on-click="map.showInfoWindow(event, 'joint')">
+                </marker>
+                <info-window id="joint" visible-on-marker="marker">
+                  <div ng-non-bindable id="bodyContent">
+                    <!-- <p><b>Description:</b> -->
+                      <h4>{{vm.place.name}}</h4>
+                      <span> {{vm.address}} </span><br>
+                      <span> {{vm.phone}} </span><br>
+                      <span> {{vm.web}} </span>
+                      <!-- <span><img src='{{vm.pic}}'></span> -->
+                  </div>
+                </info-window>
             </ng-map>
           </div>
         <!-- Search Panel-->
