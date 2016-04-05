@@ -83,7 +83,7 @@ app.controller('MainController', function(Account){
 
 app.controller('ProfileController', function(){
 });
-
+//changed to 'Account'
 app.service('Account', Account);
 app.config(configRoutes);
 
