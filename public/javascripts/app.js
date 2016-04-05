@@ -4,7 +4,9 @@ var app = angular.module('pizzaMapper', [
   'ngMap',
   'ngAnimate',
   'satellizer'
-]).controller('HomeController', function ($scope, $http, NgMap){
+]);
+
+app.controller('HomeController', function ($scope, $http, NgMap){
   console.log(NgMap + "hitting ngmap");
   //pings Google places and populates pin on map
     var vm = this;
@@ -34,14 +36,33 @@ var app = angular.module('pizzaMapper', [
 });
 
 
+app.controller('SignupController', function(){
+  console.log('hello from signup controller');
+});
+
+app.controller('LoginController', function(){
+  console.log('login controller live');
+});
+
+app.controller('LogoutController', function(){
+});
+
+app.controller('MainController', function(){
+});
+
+// MainController.$inject = ["Account"]; // minification protection
+// function MainController (Account) {
+//   var vm = this;
+//
+//   vm.currentUser = function() {
+//    return Account.currentUser();
+//  };
+//
+// }
+app.controller('ProfileController', function(){
+});
 
 
-
-// app.controller('MainController', MainController)
-// app.controller('LoginController', LoginController)
-// app.controller('SignupController', SignupController)
-// app.controller('LogoutController', LogoutController)
-// app.controller('ProfileController', ProfileController)
 // app.service('Account', Account)
 app.config(configRoutes);
 
@@ -63,74 +84,64 @@ function configRoutes($stateProvider, $urlRouterProvider, $locationProvider) {
         controller: 'HomeController',
         controllerAs: 'home',
         templateUrl: 'templates/home.html'
-      });
-};
-      // .state('signup', {
-      //   url: '/signup',
-      //   templateUrl: 'templates/signup.html',
-      //   controller: 'SignupController',
-      //   controllerAs: 'sc',
-      //   resolve: {
-      //     skipIfLoggedIn: skipIfLoggedIn
-      //   }
-      // });
-      // .state('login', {
-      //   url: '/login',
-      //   templateUrl: 'templates/login.html',
-      //   controller: 'LoginController',
-      //   controllerAs: 'lc',
-      //   resolve: {
-      //     skipIfLoggedIn: skipIfLoggedIn
-      //   }
-      // });
-      // .state('logout', {
-      //   url: '/logout',
-      //   template: null,
-      //   controller: 'LogoutController',
-      //   resolve: {
-      //     loginRequired: loginRequired
-      //   }
-      // });
-      // .state('profile', {
-      //   url: '/profile',
-      //   templateUrl: 'templates/profile.html',
-      //   controller: 'ProfileController',
-      //   controllerAs: 'profile',
-      //   resolve: {
-      //     loginRequired: loginRequired
-      //   }
-      // });
-
-    //   function skipIfLoggedIn($q, $auth) {
-    //     var deferred = $q.defer();
-    //     if ($auth.isAuthenticated()) {
-    //       deferred.reject();
-    //     } else {
-    //       deferred.resolve();
-    //     }
-    //     return deferred.promise;
-    //   }
-    //
-    //   function loginRequired($q, $location, $auth) {
-    //     var deferred = $q.defer();
-    //     if ($auth.isAuthenticated()) {
-    //       deferred.resolve();
-    //     } else {
-    //       $location.path('/login');
-    //     }
-    //     return deferred.promise;
-    //   }
-    //
-    // }
-
-//controllers
-
-  // MainController.$inject = ["Account"]; // minification protection
-  // function MainController (Account) {
-  //   var vm = this;
-  //
-  //   vm.currentUser = function() {
-  //    return Account.currentUser();
-  //  };
-  //
+      })
+      .state('signup', {
+        url: '/signup',
+        templateUrl: 'templates/signup.html',
+        controller: 'SignupController',
+        controllerAs: 'sc',
+        resolve: {
+          skipIfLoggedIn: skipIfLoggedIn
+        }
+      })
+// };
+      .state('login', {
+        url: '/login',
+        templateUrl: 'templates/login.html',
+        controller: 'LoginController',
+        controllerAs: 'lc',
+        resolve: {
+          skipIfLoggedIn: skipIfLoggedIn
+        }
+      })
   // }
+      .state('logout', {
+        url: '/logout',
+        template: null,
+        controller: 'LogoutController',
+        resolve: {
+          loginRequired: loginRequired
+        }
+      })
+    // }
+      .state('profile', {
+        url: '/profile',
+        templateUrl: 'templates/profile.html',
+        controller: 'ProfileController',
+        controllerAs: 'profile',
+        resolve: {
+          loginRequired: loginRequired
+        }
+      });
+
+      function skipIfLoggedIn($q, $auth) {
+        var deferred = $q.defer();
+        if ($auth.isAuthenticated()) {
+          deferred.reject();
+        } else {
+          deferred.resolve();
+        }
+        return deferred.promise;
+      }
+
+      function loginRequired($q, $location, $auth) {
+        var deferred = $q.defer();
+        if ($auth.isAuthenticated()) {
+          deferred.resolve();
+        } else {
+          $location.path('/login');
+        }
+        return deferred.promise;
+      }
+
+    }
