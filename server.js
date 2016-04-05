@@ -34,9 +34,49 @@ app.set('view engine', 'hbs');
 // var User = require('./models/user');
 // var Place = require('./models/place');
 
+
+//API Routes
+
+
 // Routes
 // ------------------------------------------------------
 // require('./app/routes.js')(app);
+
+//Auth Routes
+app.post('/auth/signup', function (req, res) {
+  User.findOne({ email: req.body.email }, function (err, existingUser) {
+    if (existingUser) {
+      return res.status(409).send({ message: 'Email is already taken.' });
+    }
+    var user = new User({
+      displayName: req.body.displayName,
+      username: req.body.username,
+      email: req.body.email,
+      password: req.body.password
+    });
+    user.save(function (err, result) {
+      if (err) {
+        res.status(500).send({ message: err.message });
+      }
+      res.send({ token: auth.createJWT(result) });
+    });
+  });
+});
+
+app.post('/auth/login', function (req, res) {
+  User.findOne({ email: req.body.email }, '+password', function (err, user) {
+    if (!user) {
+      return res.status(401).send({ message: 'Invalid email or password.' });
+    }
+    user.comparePassword(req.body.password, function (err, isMatch) {
+      if (!isMatch) {
+        return res.status(401).send({ message: 'Invalid email or password.' });
+      }
+      res.send({ token: auth.createJWT(user) });
+    });
+  });
+});
+
 
 app.get('*', function (req, res) {
   console.log("hitting index");
