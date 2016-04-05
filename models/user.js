@@ -2,20 +2,19 @@ var mongoose = require('mongoose'),
     Schema = mongoose.Schema,
     bcrypt = require('bcryptjs')
 
-var userSchema = new Schema({
+var UserSchema = new Schema({
   created: { type: Date },
   updated: { type: Date },
   uername: String,
   email: { type: String, unique: true, lowercase: true },
   password: { type: String, select: false },
   displayName: String,
-  // TODO #12
   picture: String,
   favorites: String
 
 });
 
-userSchema.pre('save', function (next) {
+UserSchema.pre('save', function (next) {
   // set created and updated
   now = new Date();
   this.updated = now;
@@ -36,11 +35,11 @@ userSchema.pre('save', function (next) {
   });
 });
 
-userSchema.methods.comparePassword = function (password, done) {
+UserSchema.methods.comparePassword = function (password, done) {
   bcrypt.compare(password, this.password, function (err, isMatch) {
     done(err, isMatch);
   });
 };
 
-var User = mongoose.model('User', userSchema);
+var User = mongoose.model('User', UserSchema);
 module.exports = User;
