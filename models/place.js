@@ -6,14 +6,6 @@ var PlaceSchema = new Schema({
   address: String,
   description: String,
   website: String,
-  list: {
-      sfist: Boolean,
-      yelp_sf: Boolean,
-      yelp_oak: Boolean,
-      eatersf: Boolean,
-      thrillist: Boolean,
-      bold_italic_oak: Boolean
-    }
   coords: {
       latitude: Number,
       longitude: Number

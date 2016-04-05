@@ -5,7 +5,11 @@ var port            = process.env.PORT || 3000;
 var morgan          = require('morgan');
 var bodyParser      = require('body-parser');
 var methodOverride  = require('method-override');
+var auth            = require('./resources/auth');
 var app             = express();
+
+// require and load dotenv
+require('dotenv').load();
 
 // Sets the connection to MongoDB
 mongoose.connect("mongodb://localhost/pizzaMapper");
@@ -25,6 +29,10 @@ app.use(bodyParser.json({ type: 'application/vnd.api+json'}));  // parse applica
 app.use(methodOverride());
 // set view engine to hbs (handlebars)
 app.set('view engine', 'hbs');
+
+// require User and Post models
+// var User = require('./models/user');
+// var Place = require('./models/place');
 
 // Routes
 // ------------------------------------------------------

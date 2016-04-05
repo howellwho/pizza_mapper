@@ -14,6 +14,11 @@ app.controller('HomeController', function($scope, $http, NgMap){
   vm.types = "['establishment']";
   vm.placeChanged = function() {
     vm.place = this.getPlace();
+    vm.address = vm.place.vicinity
+    vm.phone = vm.place.formatted_phone_number
+    vm.web = vm.place.website
+    // vm.pic = vm.place.photos[0].getURL()
+    // vm.picture = vm.place.something.here.is.the.picture
     console.log('place', vm.place);
     console.log('location', vm.place.geometry.location);
   }
@@ -32,7 +37,6 @@ app.controller('HomeController', function($scope, $http, NgMap){
 
 
 });
-
 
 
 app.config.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];

@@ -17,7 +17,12 @@
             </marker>
               <info-window id="joint" visible-on-marker="marker">
                 <div ng-non-bindable id="bodyContent">
-                  <p><b>Description:</b> {{vm}}</p>
+                  <!-- <p><b>Description:</b> -->
+                    <h3>{{vm.place.name}}</h3>
+                    <span> {{vm.address}} </span><br>
+                    <span> {{vm.phone}} </span><br>
+                    <span> {{vm.web}} </span>
+                    <!-- <span><img src='{{vm.pic}}'></span> -->
                 </div>
               </info-window>
             </ng-map>
