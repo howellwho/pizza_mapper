@@ -2,7 +2,8 @@ var app = angular.module('pizzaMapper', [
   'ui.router',
   'ngResource',
   'ngMap',
-  // 'map',
+  'ngAnimate'
+  // 'map'
 ]);
 
 app.config(config);
@@ -11,10 +12,10 @@ app.controller('HomeController', function($scope, $http, NgMap){
 //pings Google places and populates pin on map
   var vm = this;
   vm.types = "['establishment']";
-  vm.placedChanged = function() {
+  vm.placeChanged = function() {
     vm.place = this.getPlace();
+    console.log('place', vm.place);
     console.log('location', vm.place.geometry.location);
-    vm.map.setCenter(vm.place.geometry.location);
   }
   vm.search = function(){
     console.log('clicked searching... ', vm.address);

@@ -10,6 +10,10 @@ var app             = express();
 // Sets the connection to MongoDB
 mongoose.connect("mongodb://localhost/pizzaMapper");
 
+process.on('exit', function(){
+  mongoose.disconnect();
+});
+
 // Logging and Parsing
 app.use(express.static(__dirname + '/public'));                 // sets the static files location to public
 app.use('/public/bower_components',  express.static(__dirname + '/public/bower_components')); // Use BowerComponents

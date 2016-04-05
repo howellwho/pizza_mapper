@@ -13,11 +13,11 @@
             <ng-map id="map" center="37.77,-122.43" zoom="11">
               <marker id="marker" position="{{vm.address}}"
                 title="{{address}}"
-                on-click="map.showInfoWindow(event, 'bar')">
+                on-click="map.showInfoWindow(event, 'joint')">
             </marker>
-              <info-window id="bar" visible-on-marker="marker">
+              <info-window id="joint" visible-on-marker="marker">
                 <div ng-non-bindable id="bodyContent">
-                  <p><b>Description:</b> {{vm.address}}</p>
+                  <p><b>Description:</b> {{vm}}</p>
                 </div>
               </info-window>
             </ng-map>
@@ -44,10 +44,10 @@
                               ng-click="vm.search()" type="button">Go!
                               </button>
                             </span>
-                            <div ng-show="vm.place">
+                            <!-- <div ng-show="vm.place">
                               Address = {{vm.place.formatted_address}} <br/>
                               Location: {{vm.place.geometry.location}}<br/>
-                            </div>
+                            </div> -->
                         </div>
                     </form>
                 </div>
@@ -96,18 +96,17 @@
             <div class="panel panel-default">
                 <!-- Panel Title -->
                 <div class="panel-heading">
-                    <h2 class="panel-title text-center">Most Favorited Joint<span class="glyphicon glyphicon-map-marker"></span></h2>
+                    <h2 class="panel-title text-center">Favorite Pizza Joints<span class="glyphicon glyphicon-map-marker"></span></h2>
                 </div>
                 <!-- Panel Body -->
                 <div class="panel-body">
                     <!-- Creates Form (novalidate disables HTML validation, Angular will control) -->
                     <form name ="addForm" novalidate>
                         <div class="form-group">
-                            <label for="top-fav">User Favorites</label>
+                            <label for="top-fav">Top User Favorites</label>
                               <ul>
                                 <li><a href="http://www.littlestarpizza.com/" + target='_blank'>Little Star</a></li>
                                 <li><a href="http://tonyspizzanapoletana.com/" + target='_blank'>Tony's</a></li>
-
                               </ul>
                             <!-- <input type="text" class="form-control" id="language" placeholder="Fortran" ng-model="formData.favlang" required> -->
                         </div>
