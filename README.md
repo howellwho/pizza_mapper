@@ -1,14 +1,15 @@
 # Pizza Mapper
 
-Technology:
+## Built With
 
-*MongoDB/Mongoose
-*Express
-*Angular
-*Node.js
-*Bootstrap
+* Node.js & Express
+* MongoDB/Mongoose
+* Angular
+* Google Maps API
+* Handlebars Templating
+* Bootstrap
 
-Modules:
+## Modules
 
-*NgMap: https://ngmap.github.io/
-*Satellizer/JSON Web Tokens :https://github.com/sahat/satellizer
+* NgMap: https://ngmap.github.io/
+* Satellizer/JSON Web Tokens :https://github.com/sahat/satellizer
