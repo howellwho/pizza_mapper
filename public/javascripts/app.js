@@ -84,10 +84,10 @@ app.controller('MainController', function(Account){
 app.controller('ProfileController', function(){
 });
 
-// app.service(Account);
+app.service('Account', Account);
 app.config(configRoutes);
 
-//routes
+//Routes
 configRoutes.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];
 function configRoutes($stateProvider, $urlRouterProvider, $locationProvider) {
     console.log('configRoutes');
