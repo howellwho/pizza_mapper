@@ -30,13 +30,31 @@ app.use(methodOverride());
 // set view engine to hbs (handlebars)
 app.set('view engine', 'hbs');
 
-// require User and Post models
-// var User = require('./models/user');
+// require User models
+var User = require('./models/user');
 // var Place = require('./models/place');
 
 
 //API Routes
+app.get('/api/me', auth.ensureAuthenticated, function (req, res) {
+  User.findById(req.user, function (err, user) {
+    // res.send(user.populate('posts'));
+  });
+});
 
+app.put('/api/me', auth.ensureAuthenticated, function (req, res) {
+  User.findById(req.user, function (err, user) {
+    if (!user) {
+      return res.status(400).send({ message: 'User not found.' });
+    }
+    user.displayName = req.body.displayName || user.displayName;
+    user.username = req.body.username || user.username;
+    user.email = req.body.email || user.email;
+    user.save(function(err) {
+      res.send(user);
+    });
+  });
+});
 
 // Routes
 // ------------------------------------------------------
@@ -78,7 +96,7 @@ app.post('/auth/login', function (req, res) {
 });
 
 
-app.get('/', function (req, res) {
+app.get('*', function (req, res) {
   console.log("hitting index");
   res.render('index');
 });

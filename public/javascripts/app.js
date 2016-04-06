@@ -97,7 +97,7 @@ app.config(configRoutes);
 configRoutes.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];
 function configRoutes($stateProvider, $urlRouterProvider, $locationProvider) {
     console.log('configRoutes');
-    //this allows us to use routes without hash params!
+    //this allows us to use routes without hash params
     $locationProvider.html5Mode({
       enabled: true,
       requireBase: false
@@ -172,10 +172,8 @@ function configRoutes($stateProvider, $urlRouterProvider, $locationProvider) {
       }
 
     };
-    //////////////
-    // Services //
-    //////////////
 
+    // Services //
     Account.$inject = ["$http", "$q", "$auth"]; // minification protection
     function Account($http, $q, $auth) {
       var self = this;
@@ -200,10 +198,10 @@ function configRoutes($stateProvider, $urlRouterProvider, $locationProvider) {
       function login(userData) {
         return (
           $auth
-            .login(userData) // login (https://github.com/sahat/satellizer#authloginuser-options)
+            .login(userData) // login
             .then(
               function onSuccess(response) {
-                //set token (https://github.com/sahat/satellizer#authsettokentoken)
+                //set token
                 $auth.setToken(response.data.token)
               },
 
@@ -215,7 +213,7 @@ function configRoutes($stateProvider, $urlRouterProvider, $locationProvider) {
       }
 
       function logout() {
-        // returns a promise!!!
+        // returns a promise
         //logout the user by removing their jwt token (using satellizer)
         return (
           $auth.logout()
@@ -224,7 +222,7 @@ function configRoutes($stateProvider, $urlRouterProvider, $locationProvider) {
             })
           // Make sure to also wipe the user's data from the application:
           // self.user = null;
-          // returns a promise!!!
+          // returns a promise
         )
       }
 

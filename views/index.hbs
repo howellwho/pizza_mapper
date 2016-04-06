@@ -7,8 +7,6 @@
   <!-- CSS -->
     <link rel="stylesheet" href="/public/bower_components/bootstrap/dist/css/bootstrap.css"/>
     <link rel="stylesheet" href="stylesheets/main.css">
-    <!-- Holder JS -->
-    <!-- <script type="text/javascript" src="/public/bower_components/holderjs/holder.js"></script> -->
     <!-- Google Maps API -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCAS28jv999ojgYl1JERa4UAU9T1zsdWSk&libraries=places"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
@@ -42,10 +40,10 @@
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
               <li ng-show="!main.currentUser()"><a ui-sref="signup">Sign Up</a></li>
-              <li ng-click="toggleLoginModal()"
-                  ng-show="!main.currentUser()"><a ui-sref="login">Log In</a></li>
+              <!-- <li ng-click="toggleLoginModal()" -->
+              <li ng-show="!main.currentUser()"><a ui-sref="login">Log In</a></li>
               <li ng-show="main.currentUser()"><a ui-sref="profile">\{{main.currentUser().displayName}}</a></li>
-              <li ng-show="main.currentUser()"><a ui-sref="logout">Log Out</a></li>
+              <li><a ui-sref="logout">Log Out</a></li>
             </ul>
           </div>
           <!-- <modal title="Login form" visible="showModal">
