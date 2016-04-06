@@ -83,7 +83,7 @@ app.controller('MainController', function(Account){
 
 app.controller('ProfileController', function(){
 });
-//changed to 'Account'
+//added in 'Account' fixed error
 app.service('Account', Account);
 app.config(configRoutes);
 
@@ -212,8 +212,7 @@ function configRoutes($stateProvider, $urlRouterProvider, $locationProvider) {
         // returns a promise!!!
         //logout the user by removing their jwt token (using satellizer)
         return (
-          $auth
-            .logout()
+          $auth.logout()
             .then(function() {
               self.user = null;
             })
