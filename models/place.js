@@ -4,13 +4,13 @@ var mongoose = require('mongoose')
 var PlaceSchema = new Schema({
   name: String,
   address: String,
+  city: String,
   description: String,
   website: String,
-  coords: {
-      latitude: Number,
-      longitude: Number
-    }
-})
+  pic: String,
+  lat: Number,
+  long: Number
+});
 
 var Place = mongoose.model('Place', PlaceSchema);
 

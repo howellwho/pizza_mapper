@@ -12,7 +12,10 @@ var app             = express();
 require('dotenv').load();
 
 // Sets the connection to MongoDB
-mongoose.connect("mongodb://localhost/pizzaMapper");
+mongoose.connect (
+  process.env.MONGOLAB_URI ||
+  process.env.MONGOHQ_URL ||
+  "mongodb://localhost/pizzaMapper");
 
 process.on('exit', function(){
   mongoose.disconnect();

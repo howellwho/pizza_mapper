@@ -3,23 +3,20 @@ var router = express.Router();
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 
-// var HomeController = require('../controllers/HomeController');
-//
+var ListsController = require('../controllers/ListsController');
+var PlacesController = require('../controllers/PlacesController');
 
-// router.route('/api/places')
-//   .get(HomeController.placesIndex)
-//   .post(HomeController.newPlace)
+//Lists routes  
+router.route('/lists/api')
+  .get(ListsController.index)
 //
-// router.route('/api/places/:id')
-//   .get(HomeController.showPlace)
-//   .post(HomeController.markPlace) //CREATE
-//   .put(HomeController.editPlace)
-//   .delete(HomeController.deletePlace)
-//
+router.route('/lists/api/:id')
+  .get(ListsController.showList)
+//Places routes
+router.route('/places/api')
+  .get(PlacesController.index)
 
-// just for now, until we have our own controller and data:
-
-//
-
+router.route('/places/api/:id')
+  .get(PlacesController.showPlace)
 
 module.exports = router;
