@@ -24,6 +24,12 @@ app.controller('HomeController', function ($scope, $http, NgMap){
       console.log('clicked searching... ', vm.address);
       this.address = vm.address;
     }
+    vm.listdata = [
+
+    ];
+    vm.showData = function() {
+      // alert(this.data.foo);
+    }
   //populates map on page
     NgMap.getMap().then(function(map) {
       console.log(getMap + "getmap");

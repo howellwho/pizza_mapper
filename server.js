@@ -1,7 +1,7 @@
 // Dependencies
 var express         = require('express');
 var mongoose        = require('mongoose');
-var port            = process.env.PORT || 3000;
+var port            = process.env.PORT || 8000;
 var morgan          = require('morgan');
 var bodyParser      = require('body-parser');
 var methodOverride  = require('method-override');
@@ -40,7 +40,7 @@ app.set('view engine', 'hbs');
 
 // Routes
 // ------------------------------------------------------
-// require('./app/routes.js')(app);
+var routes = require('./config/routes.js');
 
 //Auth Routes
 app.post('/auth/signup', function (req, res) {
@@ -78,10 +78,12 @@ app.post('/auth/login', function (req, res) {
 });
 
 
-app.get('*', function (req, res) {
+app.get('/', function (req, res) {
   console.log("hitting index");
   res.render('index');
 });
+
+app.use(routes);
 
 // Listen
 app.listen(port);
