@@ -26,11 +26,12 @@ app.controller('HomeController', function ($scope, $http, NgMap){
     }
     //how do i get fucking data to render here??? why is it binded to search bar?
     vm.data = [
-        {event:0}
+        {event: 'this is a test'}
     ];
     //this works little star lat/long
     vm.positions = [
-      {pos: [37.777548, -122.438007]}
+      {pos: [37.777548, -122.438007]},
+      {pos: [37.73, -122.432]}
     ];
     vm.showData = function() {
       // alert(this.data.foo);
