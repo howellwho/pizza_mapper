@@ -41,8 +41,8 @@ var places = [
       description: "",
       website: "http://arinell-pizza.com/",
       pic: "",
-      lat: 0,
-      long: 0
+      lat: 37.764725,
+      long: -122.421652
     },
     {
       name: "Beretta",
@@ -52,8 +52,8 @@ var places = [
       description: "",
       website: "http://berettasf.com/",
       pic: "",
-      lat: 0,
-      long: 0
+      lat: 37.753842,
+      long: -122.420700
     },
     {
       name: "Delarosa",
@@ -63,8 +63,8 @@ var places = [
       description: "",
       website: "http://www.delarosasf.com/",
       pic: "",
-      lat: 0,
-      long: 0
+      lat: 37.800303,
+      long: -122.439125
     },
     {
       name: "Capo's",
@@ -74,8 +74,8 @@ var places = [
       description: "",
       website: "http://www.sfcapos.com/",
       pic: "",
-      lat: 0,
-      long: 0
+      lat: 37.798532,
+      long: -122.408400
     },
     {
       name: "Pizzeria Delfina",
@@ -85,8 +85,8 @@ var places = [
       description: "",
       website: "http://pizzeriadelfina.com/",
       pic: "",
-      lat: 0,
-      long: 0
+      lat: 37.761357,
+      long: -122.424377
     },
     {
       name: "Del Popolo",
@@ -96,8 +96,8 @@ var places = [
       description: "",
       website: "http://www.delpopolosf.com/",
       pic: "",
-      lat: 0,
-      long: 0
+      lat: 37.789551,
+      long: -122.411325
     },
     {
       name: "Gialina",
@@ -107,8 +107,8 @@ var places = [
       description: "",
       website: "http://www.gialina.com/",
       pic: "",
-      lat: 0,
-      long: 0
+      lat: 37.734015,
+      long: -122.434282
     },
     {
       name: "Jay 'n' Bee Club",
@@ -118,8 +118,8 @@ var places = [
       description: "",
       website: "",
       pic: "",
-      lat: 0,
-      long: 0
+      lat: 37.759403,
+      long: -122.408754
     },
     {
       name: "Jersey",
@@ -129,8 +129,8 @@ var places = [
       description: "",
       website: "http://www.jerseysf.com/",
       pic: "",
-      lat: 0,
-      long: 0
+      lat: 37.787602,
+      long: -122.398894
     },
     {
       name: "Mozzeria",
@@ -140,8 +140,8 @@ var places = [
       description: "",
       website: "http://www.mozzeria.com/",
       pic: "",
-      lat: 0,
-      long: 0
+      lat: 37.764962,
+      long: -122.424874
     },
     {
       name: "Pauline's",
@@ -151,8 +151,8 @@ var places = [
       description: "",
       website: "http://www.paulinespizza.com/",
       pic: "",
-      lat: 0,
-      long: 0
+      lat: 37.768671,
+      long: -122.422577
     },
     {
       name: "PizzaHacker",
@@ -162,8 +162,8 @@ var places = [
       description: "",
       website: "http://www.thepizzahacker.com/",
       pic: "",
-      lat: 0,
-      long: 0
+      lat: 37.744061,
+      long: -122.420546
     },
     {
       name: "The Pizza Shop",
@@ -173,8 +173,8 @@ var places = [
       description: "",
       website: "",
       pic: "",
-      lat: 0,
-      long: 0
+      lat: 37.752614,
+      long: -122.414368
     },
     {
       name: "Pizzetta 211",
@@ -184,8 +184,8 @@ var places = [
       description: "",
       website: "http://www.pizzetta211.com/",
       pic: "",
-      lat: 0,
-      long: 0
+      lat: 37.783719,
+      long: -122.482881
     },
     {
       name: "Tony's Pizza Napoletana",
@@ -195,8 +195,8 @@ var places = [
       description: "",
       website: "http://www.tonyspizzanapoletana.com/",
       pic: "",
-      lat: 0,
-      long: 0
+      lat: 37.800326,
+      long: -122.408985
     },
     {
       name: "Una Pizza Napoletana",
@@ -206,8 +206,8 @@ var places = [
       description: "",
       website: "http://www.unapizza.com/",
       pic: "",
-      lat: 0,
-      long: 0
+      lat: 37.772835,
+      long: -122.415556
     },
     {
       name: "Zante",

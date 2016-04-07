@@ -14,7 +14,7 @@
                   title="{{address}}"
                   on-click="map.showInfoWindow(event, 'joint')">
                 </marker>
-                <marker ng-repeat ="p in vm.positions"
+                <marker ng-repeat ="p in lists track by $index"
                   position="{{p.pos}}"
                   data="{{data[$index]}}"
                   on-click="map.showInfoWindow(event, 'joint')">
