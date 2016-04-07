@@ -5,6 +5,7 @@ var PlaceSchema = new Schema({
   name: String,
   address: String,
   city: String,
+  phone: String,
   description: String,
   website: String,
   pic: String,
