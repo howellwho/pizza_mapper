@@ -99,7 +99,7 @@ app.post('/auth/login', function (req, res) {
 });
 
 
-app.get('*', function (req, res) {
+app.get('/', function (req, res) {
   console.log("hitting index");
   res.render('index');
 });

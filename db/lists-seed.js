@@ -50,7 +50,7 @@ var lists = [
      }
    ];
 
-   List.create(places, function(err, lists){
+   List.create(lists, function(err, lists){
      if(err){
        console.log("Error: ", err);
      } else {

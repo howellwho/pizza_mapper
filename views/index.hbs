@@ -43,7 +43,7 @@
               <!-- <li ng-click="toggleLoginModal()" -->
               <li ng-show="!vm.currentUser()"><a ui-sref="login">Log In</a></li>
               <li ng-show="vm.currentUser()"><a ui-sref="profile">\{{vm.currentUser().displayName}}</a></li>
-              <li><a ui-sref="logout">Log Out</a></li>
+              <li ng-show="vm.currentUser()"><a ui-sref="logout">Log Out</a></li>
             </ul>
           </div>
           <!-- <modal title="Login form" visible="showModal">

@@ -16,3 +16,6 @@ h1 {
 	width:650px;
 	height:560px;
 }
+.ng-hide {
+	display: none;
+}
