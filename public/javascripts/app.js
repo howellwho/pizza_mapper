@@ -24,8 +24,13 @@ app.controller('HomeController', function ($scope, $http, NgMap){
       console.log('clicked searching... ', vm.address);
       this.address = vm.address;
     }
-    vm.listdata = [
-
+    //how do i get fucking data to render here??? why is it binded to search bar?
+    vm.data = [
+        {event:0}
+    ];
+    //this works little star lat/long
+    vm.positions = [
+      {pos: [37.777548, -122.438007]}
     ];
     vm.showData = function() {
       // alert(this.data.foo);
@@ -57,7 +62,7 @@ app.controller('SignupController', function($location, Account){
           $location.path('/profile');
         }
       );
-  };
+    };
 });
 
 app.controller('LoginController', function($location, Account){
@@ -263,5 +268,4 @@ function configRoutes($stateProvider, $urlRouterProvider, $locationProvider) {
             )
         );
       }
-
   }

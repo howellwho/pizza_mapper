@@ -8,7 +8,11 @@ var mongoose = require('mongoose'),
         List = require("../models/list");
         // User = require("../models/use");
 
- Place.remove({}, function(err){
+// User.remove({}, function(err){
+//   if (err) console.log("ERROR: ", err);
+// });
+
+Place.remove({}, function(err){
   if (err) console.log("ERROR: ", err);
 });
 
@@ -26,7 +30,8 @@ var places = [
       website: "http://www.littlestarpizza.com/",
       pic: "",
       lat: 37.777548,
-      long: -122.438007
+      long: -122.438007,
+      coords: {pos: [Number, Number] }
     },
     {
       name: "Arinell Pizza",
