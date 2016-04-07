@@ -217,8 +217,8 @@ var places = [
       description: "",
       website: "http://zantepizza.com/",
       pic: "",
-      lat: 0,
-      long: 0
+      lat: 37.741123,
+      long: -122.422522
     },
     {
       name: "Zero Zero",
@@ -228,8 +228,8 @@ var places = [
       description: "",
       website: "http://www.zerozerosf.com/",
       pic: "",
-      lat: 0,
-      long: 0
+      lat: 37.781639,
+      long: -122.402057
     },
     {
       name: "Pizzeria Avellino",
@@ -239,8 +239,8 @@ var places = [
       description: "",
       website: "http://pizzeria-avellino.com/",
       pic: "",
-      lat: 0,
-      long: 0
+      lat: 37.798354,
+      long: -122.447084
     },
     {
       name: "Flour + Water",
@@ -250,8 +250,8 @@ var places = [
       description: "",
       website: "http://www.flourandwater.com/",
       pic: "",
-      lat: 0,
-      long: 0
+      lat: 37.758933,
+      long: -122.412271
     },
     {
       name: "Giorgio's",
@@ -261,8 +261,8 @@ var places = [
       description: "",
       website: "http://www.giorgiospizza.com/",
       pic: "",
-      lat: 0,
-      long: 0
+      lat: 37.782928,
+      long: -122.461049
     },
     {
       name: "Gioia Pizzeria",
@@ -272,8 +272,8 @@ var places = [
       description: "",
       website: "http://www.gioiapizzeria.com/",
       pic: "",
-      lat: 0,
-      long: 0
+      lat: 37.797497,
+      long: -122.421836
     },
     {
       name: "Marcello's",
@@ -283,8 +283,8 @@ var places = [
       description: "",
       website: "http://www.marcellospizzasf.com/",
       pic: "",
-      lat: 0,
-      long: 0
+      lat: 37.762067,
+      long: -122.435381
     },
     {
       name: "Patxi’s",
@@ -294,8 +294,8 @@ var places = [
       description: "",
       website: "http://www.patxispizza.com/",
       pic: "",
-      lat: 0,
-      long: 0
+      lat: 37.776417,
+      long: -122.424858
     },
     {
       name: "Ragazza",
@@ -305,8 +305,8 @@ var places = [
       description: "",
       website: "http://www.ragazzasf.com/",
       pic: "",
-      lat: 0,
-      long: 0
+      lat: 37.772457,
+      long: -122.437476
     },
     {
       name: "Tommaso's",
@@ -316,8 +316,8 @@ var places = [
       description: "",
       website: "http://tommasos.com/",
       pic: "",
-      lat: 0,
-      long: 0
+      lat: 37.797799,
+      long: -122.405242
     },
     {
       name: "Carmel Pizza Company",
@@ -327,8 +327,8 @@ var places = [
       description: "",
       website: "",
       pic: "",
-      lat: 0,
-      long: 0
+      lat: 37.807484,
+      long: -122.417204
     },
     {
       name: "Golden Boy Pizza",
@@ -338,8 +338,8 @@ var places = [
       description: "",
       website: "http://www.goldenboypizza.com/",
       pic: "",
-      lat: 0,
-      long: 0
+      lat: 37.774929,
+      long: -122.419416
     },
     {
       name: "Montesacro Pinseria-Enoteca",
@@ -349,8 +349,8 @@ var places = [
       description: "",
       website: "http://www.montesacrosf.com/",
       pic: "",
-      lat: 0,
-      long: 0
+      lat: 37.781806,
+      long: -122.410279
     },
     {
       name: "Il Casaro Pizzeria & Mozzarella Bar",
@@ -360,8 +360,8 @@ var places = [
       description: "",
       website: "http://www.ilcasarosf.com/",
       pic: "",
-      lat: 0,
-      long: 0
+      lat: 37.798495,
+      long: -122.407321
     },
     {
       name: "Arizmendi Bakery",
@@ -371,8 +371,8 @@ var places = [
       description: "",
       website: "http://www.arizmendibakery.com/",
       pic: "",
-      lat: 0,
-      long: 0
+      lat: 37.763407,
+      long: -122.466466
     },
     {
       name: "Arizmendi Bakery Lakeshore",
@@ -382,8 +382,8 @@ var places = [
       description: "",
       website: "http://arizmendilakeshore.com/",
       pic: "",
-      lat: 0,
-      long: 0
+      lat: 37.810772,
+      long: -122.244837
     },
     {
       name: "Amazona’s Pizza",
@@ -393,8 +393,8 @@ var places = [
       description: "",
       website: "http://www.amazonaspizza.com/",
       pic: "",
-      lat: 0,
-      long: 0
+      lat: 37.813958,
+      long: -122.268757
     },
     {
       name: "The Star on Grand",
@@ -404,8 +404,8 @@ var places = [
       description: "",
       website: "http://www.thestarongrand.com/",
       pic: "",
-      lat: 0,
-      long: 0
+      lat: 37.814322,
+      long: -122.246585
     },
     {
       name: "Zachary’s Chicago Pizza",
@@ -415,8 +415,8 @@ var places = [
       description: "",
       website: "http://www.zacharys.com/",
       pic: "",
-      lat: 0,
-      long: 0
+      lat: 37.846295,
+      long: -122.252171
     },
     {
       name: "Pizzaiolo",
@@ -426,8 +426,8 @@ var places = [
       description: "",
       website: "http://www.pizzaiolooakland.com/",
       pic: "",
-      lat: 0,
-      long: 0
+      lat: 37.836594,
+      long: -122.262152
     },
     {
       name: "Boot & Shoe Service",
@@ -437,8 +437,8 @@ var places = [
       description: "",
       website: "http://bootandshoeservice.com/",
       pic: "",
-      lat: 0,
-      long: 0
+      lat: 37.812838,
+      long: -122.246748
     },
     {
       name: "Pizza Matador",
@@ -448,8 +448,8 @@ var places = [
       description: "",
       website: "http://www.pizzamatador.com/",
       pic: "",
-      lat: 0,
-      long: 0
+      lat: 37.804364,
+      long: -122.271114
     },
     {
       name: "Fist of Flour Pizza Company Doughjo",
@@ -459,8 +459,8 @@ var places = [
       description: "",
       website: "http://wheresthefist.com/",
       pic: "",
-      lat: 0,
-      long: 0
+      lat: 37.788708,
+      long: -122.195775
     },
     {
       name: "Marzano",
@@ -470,8 +470,8 @@ var places = [
       description: "",
       website: "http://www.marzanorestaurant.com/",
       pic: "",
-      lat: 0,
-      long: 0
+      lat: 37.807300,
+      long: -122.222132
     },
     {
       name: "Nick’s Pizza",
@@ -481,8 +481,8 @@ var places = [
       description: "",
       website: "http://oaklandstylepizza.com/",
       pic: "",
-      lat: 0,
-      long: 0
+      lat: 37.848285,
+      long: -122.265731
     },
     {
       name: "A16",
@@ -492,8 +492,8 @@ var places = [
       description: "",
       website: "http://www.a16sf.com/",
       pic: "",
-      lat: 0,
-      long: 0
+      lat: 37.799875,
+      long: -122.442099
     },
     {
       name: "Cheese Board Pizza",
@@ -503,19 +503,19 @@ var places = [
       description: "",
       website: "http://cheeseboardcollective.coop/",
       pic: "",
-      lat: 0,
-      long: 0
+      lat: 37.879852,
+      long: -122.269542
     },
     {
       name: "Emilia's Pizzeria",
-      address: "2995 Shattuck Avenue, Berkeley",
+        address: "2995 Shattuck Avenue, Berkeley",
       city: "Berkeley",
       phone: "(510) 704-1794",
       description: "",
       website: "http://www.emiliaspizzeria.com/",
       pic: "",
-      lat: 0,
-      long: 0
+      lat: 37.855527,
+      long: -122.266267
     },
     {
       name: "Gaspare's Pizza",
@@ -525,8 +525,8 @@ var places = [
       description: "",
       website: "http://www.gasparespizzeria.com/",
       pic: "",
-      lat: 0,
-      long: 0
+      lat: 37.780586,
+      long: -122.479152
     },
     {
       name: "Piccino Cafe",
@@ -536,8 +536,8 @@ var places = [
       description: "",
       website: "http://www.piccino.com/",
       pic: "",
-      lat: 0,
-      long: 0
+      lat: 37.757569,
+      long: -122.389923
     },
     {
       name: "All Good Pizza",
@@ -547,8 +547,8 @@ var places = [
       description: "",
       website: "http://allgoodpizza.com/",
       pic: "",
-      lat: 0,
-      long: 0
+      lat: 37.738672,
+      long: -122.389794
     },
     {
       name: "Pizza Orgasmica",
@@ -558,8 +558,8 @@ var places = [
       description: "",
       website: "http://www.gocheespizza.com/",
       pic: "",
-      lat: 0,
-      long: 0
+      lat: 37.794989,
+      long: -122.398680
     },
     {
       name: "Mythic",
@@ -569,8 +569,8 @@ var places = [
       description: "",
       website: "http://mythicpizza.net/",
       pic: "",
-      lat: 0,
-      long: 0
+      lat: 37.771820,
+      long: -122.431269
     },
     {
       name: "Nob Hill Cafe",
@@ -580,8 +580,8 @@ var places = [
       description: "",
       website: "http://www.nobhillcafe.com/",
       pic: "",
-      lat: 0,
-      long: 0
+      lat: 37.793202,
+      long: -122.412612
     },
     {
       name: "Haystack",
@@ -591,8 +591,8 @@ var places = [
       description: "",
       website: "http://haystackpizzasf.com/",
       pic: "",
-      lat: 0,
-      long: 0
+      lat: 37.751404,
+      long: -122.429187
     },
     {
       name: "Bellissimo Pizza",
@@ -602,8 +602,8 @@ var places = [
       description: "",
       website: "http://www.bellissimopizzamenu.com/",
       pic: "",
-      lat: 0,
-      long: 0
+      lat: 37.788524,
+      long: -122.415455
     },
     {
       name: "Lanesplitter",
@@ -613,8 +613,8 @@ var places = [
       description: "",
       website: "http://www.lanesplitterpizza.com/",
       pic: "",
-      lat: 0,
-      long: 0
+      lat: 37.834970,
+      long: -122.263232
     },
     {
       name: "Slicer",
@@ -624,8 +624,8 @@ var places = [
       description: "",
       website: "http://slicerpizzeria.com/",
       pic: "",
-      lat: 0,
-      long: 0
+      lat: 37.830268,
+      long: -122.247759
     },
     {
       name: "Forge Pizza",
@@ -635,8 +635,8 @@ var places = [
       description: "",
       website: "http://theforgepizza.com",
       pic: "",
-      lat: 0,
-      long: 0
+      lat: 37.794353,
+      long: -122.275647
     }
   ];
 
