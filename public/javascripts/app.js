@@ -46,15 +46,14 @@ app.controller('HomeController', function ($scope, $http, NgMap){
                       // console.log(placeData);
                       vm.positions.push(placeData);
                     })
-                    console.log(vm.positions);
-                    vm.place();
+                    console.log("this is vm.positions: ",vm.positions.pos);
+                    // vm.place();
                   })
 
               // })
             // });
           // })
       };
-
 
         //  {event: 'this is a test'}
         // ];
