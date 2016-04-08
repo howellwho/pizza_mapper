@@ -23,9 +23,9 @@ app.controller('HomeController', function ($scope, $http, NgMap){
 
 
       }
-      vm.all = [];
+    vm.all = [];
     vm.listInfo = {}
-
+    vm.place = {};
     vm.getAllLists = function() {
       $http
       .get('/lists/api')
@@ -61,10 +61,27 @@ app.controller('HomeController', function ($scope, $http, NgMap){
           cleanData._id = rawData._id;
           cleanData.pos = [rawData.lat, rawData.long];
           cleanData.name = rawData.name;
+          cleanData.phone = rawData.phone;
+          cleanData.website = rawData.website;
+          cleanData.address = rawData.address;
+          cleanData.showDetail = function(map){
+            console.log("daniel")
+            var specificData = vm.positions.filter(function(p) {
+                return p._id === cleanData._id;
+            })[0];
+            vm.place = specificData;
+            console.log("specificData", specificData);
+            // // vm.map.showInfoWindow('joint2', rawData._id);
+            map(event, "joint2");
+            //
+            // console.log("id is ", rawData._id)
+          };
 
           vm.positions.push(cleanData);
           console.log("vm.positions", vm.positions);
         })
+
+
       });
     }
 
@@ -85,48 +102,49 @@ app.controller('HomeController', function ($scope, $http, NgMap){
     //   console.log('location', vm.place.geometry.location);
     // }
 
-
     vm.search = function(){
       console.log('clicked searching... ', vm.address);
       this.address = vm.address;
     }
-    vm.showData = function() {
+
+
+    //vm.showData = function() {
       //alert(this.data.foo);
       //get db places data
         // $http.get('/lists/api/')
         //   .then(function(response) {
             // console.log("places: ", response.data.lists[0].places);
-            var marker = {};
-            // TODO: change this to select one list
+            //var marker = {};
+
             // response.data.lists.forEach(function(list){
             //   list.places.forEach(function(place){
                 // console.log(place);
                 // $scope.lists.push(place);
-                $http.get('/places/api/')
-                  .then(function(response){
-                    console.log(response.data.places);
-                    response.data.places.forEach(function(place){
-                      vm.positions.push({
-                        id: place._id,
-                        pos: [place.lat, place.long],
-                        name: place.name,
-                        phone: place.phone,
-                        website: place.website,
-                        address: place.address,
-                        showDetail: function(e){
-                          this.map.showInfoWindow('joint2', place._id);
-                          console.log("id is ", place._id)
-                        }
-                      });
-                    })
-                    // console.log("this is $scope.positions: ",$scope.positions);
-                  })
+                // $http.get('/places/api/')
+                //   .then(function(response){
+                //     console.log(response.data.places);
+                //     response.data.places.forEach(function(place){
+                //       vm.positions.push({
+                //         id: place._id,
+                //         pos: [place.lat, place.long],
+                //         name: place.name,
+                //         phone: place.phone,
+                //         website: place.website,
+                //         address: place.address,
+                //         showDetail: function(e){
+                //           this.map.showInfoWindow('joint2', place._id);
+                //           console.log("id is ", place._id)
+                //         }
+                //       });
+                //     })
+                //     // console.log("this is $scope.positions: ",$scope.positions);
+                //   })
 
 
               // })
             // });
           // })
-      };
+      //};
 
 
   //populates map on page
@@ -134,12 +152,9 @@ app.controller('HomeController', function ($scope, $http, NgMap){
       console.log(getMap + "getmap");
       console.log(NgMap + "ngmap")
       vm.map = map;
-      console.log(map.getCenter());
-      console.log('markers', map.markers);
-      console.log('shapes', map.shapes);
     });
     console.log("all lists FROM MAP: ", $scope.lists);
-    vm.showData();
+    // vm.showData();
 });
 
 

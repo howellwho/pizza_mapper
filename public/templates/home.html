@@ -9,7 +9,7 @@
     <div class="row content">
         <!-- Google Map -->
           <div class="col-md-7">
-            <ng-map id="map" center="37.77,-122.43" zoom="11">
+            <ng-map id="map" center="37.8236,-122.3706" zoom="11">
               <!-- search box marker -->
                 <marker id="marker" position="{{vm.address}}"
                   title="{{address}}"
@@ -24,15 +24,14 @@
                       <span> {{vm.web}} </span>
                   </div>
                 </info-window>
-
                 <marker ng-repeat="p in vm.positions"
                   id="{{p.id}}"
                   position="{{p.pos}}"
-                  on-click="p.showDetail(e, place)">
+                  on-click="map.showInfoWindow(event, 'joint2')">
                 </marker>
                 <info-window id="joint2" visible-on-marker="marker">
-                  <div ng-non-bindable="p in vm.positions">
-                    <h4>{{p.name}}</h4>
+                  <div ng-non-bindable="">
+                    <h4>Pizza!!!</h4>
                     <span> {{p.address}} </span><br>
                     <span> {{p.phone}} </span><br>
                     <span> {{p.website}} </span>
@@ -76,7 +75,7 @@
             <div class="panel panel-default">
                 <!-- Panel Title -->
                 <div class="panel-heading">
-                    <h2 class="panel-title text-center">Top Pizza Lists of San Francisco <span class="glyphicon glyphicon-map-marker"></span></h2>
+                    <h2 class="panel-title text-center">Top Pizza Lists of SF/Oakland <span class="glyphicon glyphicon-map-marker"></span></h2>
                 </div>
                 <!-- Panel Body -->
                 <div class="panel-body">
@@ -86,15 +85,14 @@
                           <!-- <ul> {{lc.all}} </ul> -->
                           <form>
                             <ul>
-                              <li> <input type="checkbox" id="checkbox1" value="Select" ng-change="vm.renderListWhenClicked({{list}})" ng-model="listInfo">
+                              <li> <input type="checkbox" id="checkbox1" value="Select"
+                                ng-change="vm.renderListWhenClicked({{list}})" ng-model="listInfo">
                                 <a ng-href="{{list.url}}" + target='_blank'>{{list.name}}</a>
-
                               </li>
                             </ul>
                           </form>
                       </div>
                     </div>
-
                 </div>
             </div>
         </div>
