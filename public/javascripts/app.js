@@ -14,9 +14,16 @@ app.controller('HomeController', function ($scope, $http, NgMap){
     $scope.list = []
     vm.positions = [];
     vm.types = "['establishment']";
-    $scope.clicked = function() {
-      console.log("clicked test button");
-    }
+    vm.placeChanged = function() {
+      vm.place = this.getPlace();
+      vm.address = vm.place.vicinity
+      vm.phone = vm.place.formatted_phone_number
+      vm.web = vm.place.website
+      // vm.renderListWhenClicked =renderListWhenClicked;
+
+
+      }
+
 
     vm.renderListWhenClicked = function (list) {
       console.log("hit render list");
@@ -29,22 +36,11 @@ app.controller('HomeController', function ($scope, $http, NgMap){
         // vm.position.push(response.data.places[i])
       })
 
-    vm.placeChanged = function() {
-      vm.place = this.getPlace();
-      vm.address = vm.place.vicinity
-      vm.phone = vm.place.formatted_phone_number
-      vm.web = vm.place.website
-      // vm.renderListWhenClicked =renderListWhenClicked;
 
-
-      }
       // vm.pic = vm.place.photos[0].getURL()
       console.log('place', vm.place);
       console.log('location', vm.place.geometry.location);
     }
-
-
-
 
 
     vm.search = function(){
@@ -89,7 +85,7 @@ app.controller('HomeController', function ($scope, $http, NgMap){
           // })
       };
 
-  
+
   //populates map on page
     NgMap.getMap().then(function(map) {
       console.log(getMap + "getmap");
