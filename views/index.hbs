@@ -39,11 +39,11 @@
                 </div>
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-              <li ng-show="!vm.currentUser()"><a ui-sref="signup">Sign Up</a></li>
+              <li ng-show="!profile.currentUser()"><a ui-sref="signup">Sign Up</a></li>
               <!-- <li ng-click="toggleLoginModal()" -->
-              <li ng-show="!vm.currentUser()"><a ui-sref="login">Log In</a></li>
-              <li ng-show="vm.currentUser()"><a ui-sref="profile">\{{vm.currentUser().displayName}}</a></li>
-              <li ng-show="vm.currentUser()"><a ui-sref="logout">Log Out</a></li>
+              <li ng-show="!profile.currentUser()"><a ui-sref="login">Log In</a></li>
+              <li ng-show="profile.currentUser()"><a ui-sref="profile">\{{profile.currentUser().displayName}}</a></li>
+              <li> <a ui-sref="logout">Log Out</a></li>
             </ul>
           </div>
           <!-- <modal title="Login form" visible="showModal">

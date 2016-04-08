@@ -14,19 +14,28 @@
                   title="{{address}}"
                   on-click="map.showInfoWindow(event, 'joint')">
                 </marker>
-                <marker ng-repeat ="p in vm.positions"
-                  position="{{p.pos}}"
-                  data="{{data[$index]}}"
-                  on-click="map.showInfoWindow(event, 'joint')">
-                </marker>
                 <info-window id="joint" visible-on-marker="marker">
-                  <div ng-non-bindable id="bodyContent">
+                  <div ng-non-bindable="">
                     <!-- <p><b>Description:</b> -->
                       <h4>{{vm.place.name}}</h4>
                       <span> {{vm.address}} </span><br>
                       <span> {{vm.phone}} </span><br>
                       <span> {{vm.web}} </span>
                       <!-- <span><img src='{{vm.pic}}'></span> -->
+                  </div>
+                </info-window>
+
+                <marker ng-repeat="p in vm.positions"
+                  id="{{p.id}}"
+                  position="{{p.pos}}"
+                  on-click="p.showDetail(e, place)">
+                </marker>
+                <info-window id="joint2" visible-on-marker="marker">
+                  <div ng-non-bindable="">
+                    <h4>{{p.name}}</h4>
+                    <span> {{p.address}} </span><br>
+                    <span> {{p.phone}} </span><br>
+                    <span> {{p.website}} </span>
                   </div>
                 </info-window>
             </ng-map>

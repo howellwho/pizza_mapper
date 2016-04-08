@@ -5,8 +5,9 @@ var methodOverride = require('method-override');
 
 var ListsController = require('../controllers/ListsController');
 var PlacesController = require('../controllers/PlacesController');
+// var GeocoderController = require('../controllers/GeocoderController');
 
-//Lists routes  
+//Lists routes
 router.route('/lists/api')
   .get(ListsController.index)
 //
@@ -18,5 +19,6 @@ router.route('/places/api')
 
 router.route('/places/api/:id')
   .get(PlacesController.showPlace)
+  // .post(GeocoderController.geocodeAddress)
 
 module.exports = router;

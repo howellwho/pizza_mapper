@@ -10,6 +10,8 @@ app.controller('HomeController', function ($scope, $http, NgMap){
   console.log(NgMap + "hitting ngmap");
   //pings Google places and populates pin on map
     var vm = this;
+    $scope.lists = [];
+    vm.positions = [];
     vm.types = "['establishment']";
     vm.placeChanged = function() {
       vm.place = this.getPlace();
@@ -24,17 +26,52 @@ app.controller('HomeController', function ($scope, $http, NgMap){
       console.log('clicked searching... ', vm.address);
       this.address = vm.address;
     }
-    //how do i get fucking data to render here??? why is it binded to search bar?
-    vm.data = [
-        {event:0}
-    ];
-    //this works little star lat/long
-    vm.positions = [
-      {pos: [37.777548, -122.438007]}
-    ];
     vm.showData = function() {
-      // alert(this.data.foo);
-    }
+      //alert(this.data.foo);
+      //get db places data
+        // $http.get('/lists/api/')
+        //   .then(function(response) {
+            // console.log("places: ", response.data.lists[0].places);
+            var marker = {};
+            // TODO: change this to select one list
+            // response.data.lists.forEach(function(list){
+            //   list.places.forEach(function(place){
+                // console.log(place);
+                // $scope.lists.push(place);
+                $http.get('/places/api/')
+                  .then(function(response){
+                    console.log(response.data.places);
+                    response.data.places.forEach(function(place){
+                      vm.positions.push({
+                        id: place._id,
+                        pos: [place.lat, place.long],
+                        name: place.name,
+                        phone: place.phone,
+                        website: place.website,
+                        address: place.address,
+                        showDetail: function(e){
+                          this.map.showInfoWindow('joint2', place._id);
+                          console.log("id is ", place._id)
+                        }
+                      });
+                    })
+                    // console.log("this is vm.positions: ",vm.positions);
+                  })
+
+
+              // })
+            // });
+          // })
+      };
+
+        //  {event: 'this is a test'}
+        // ];
+        // //this works little star lat/long
+        // vm.positions = [
+        //   {pos: [37.777548, -122.438007]},
+        //   {pos: [37.73, -122.432]}
+        // ];
+
   //populates map on page
     NgMap.getMap().then(function(map) {
       console.log(getMap + "getmap");
@@ -44,20 +81,22 @@ app.controller('HomeController', function ($scope, $http, NgMap){
       console.log('markers', map.markers);
       console.log('shapes', map.shapes);
     });
+    console.log("all lists: ", $scope.lists);
+    vm.showData();
 });
 
 
 app.controller('SignupController', function($location, Account){
-  var vm = this;
-  vm.new_user = {};//form data
+  var sc = this;
+  sc.new_user = {};//form data
 
-  vm.signup = function(){
+  sc.signup = function(){
     Account
-      .signup(vm.new_user)
+      .signup(sc.new_user)
       .then(
         function (response) {
           //clear sign up form
-          vm.new_user = {};
+          sc.new_user = {};
           //redirect
           $location.path('/profile');
         }
@@ -66,15 +105,15 @@ app.controller('SignupController', function($location, Account){
 });
 
 app.controller('LoginController', function($location, Account){
-  var vm = this;
-  vm.new_user = {}; //form data
+  var lc = this;
+  lc.new_user = {}; //form data
 
-  vm.login = function(){
+  lc.login = function(){
     Account
-     .login(vm.new_user)
+     .login(lc.new_user)
      .then(function(){
        //clear form
-       vm.new_user = {};
+       lc.new_user = {};
        $location.path('/profile');
      })
   };
@@ -114,7 +153,7 @@ function configRoutes($stateProvider, $urlRouterProvider, $locationProvider) {
       .state('home', {
         url: "/",
         controller: 'HomeController',
-        controllerAs: 'home',
+        controllerAs: 'vm',
         templateUrl: 'templates/home.html'
       })
       .state('signup', {
