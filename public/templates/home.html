@@ -85,7 +85,7 @@
                         <div class="form-group">
                             <label for="top-lists">Popular Lists</label>
                               <ul>
-                                <li><input type="checkbox" id="checkbox1" value="Select" ng-model="formData1">
+                                <li><input type="checkbox" id="checkbox1" value="Select" ng-model="list" ng-click="vm.renderListWhenClicked()">
                                   <a href="http://sfist.com/2015/09/17/the_best_pizza_in_san_francisco.php" + target='_blank'>SFist Guide</a></li>
 
                                 <li><input type="checkbox" id="checkbox2" value="Select" ng-model="formData2">
@@ -134,8 +134,17 @@
         </div>
     </div>
     <hr/>
+    <div ng-controller="listcontroller as lc">
+      <div ng-init="lc.getAllLists()">
+        <div ng-repeat="list in lc">
+            <!-- <p> {{lc.all}} </p> -->
+            <p> {{lc.all}} </p>
+        </div>
+      </div>
+    </div>
     <!-- Footer -->
     <div class="footer">
+      <div
         <p class="text-center"><span class="glyphicon glyphicon-check"></span> Pizza Mapper 2016
     </div>
 </div>

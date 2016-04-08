@@ -11,17 +11,42 @@ app.controller('HomeController', function ($scope, $http, NgMap){
   //pings Google places and populates pin on map
     var vm = this;
     $scope.lists = [];
+    $scope.list = []
     vm.positions = [];
     vm.types = "['establishment']";
+    $scope.clicked = function() {
+      console.log("clicked test button");
+    }
+
+    vm.renderListWhenClicked = function (list) {
+      console.log("hit render list");
+      listId = list._id
+      $http
+      .get('/lists/api/' + listId)
+      .then(function(response){
+        console.log(repsonse.data);
+        // re render map with new pin data
+        // vm.position.push(response.data.places[i])
+      })
+
     vm.placeChanged = function() {
       vm.place = this.getPlace();
       vm.address = vm.place.vicinity
       vm.phone = vm.place.formatted_phone_number
       vm.web = vm.place.website
+      // vm.renderListWhenClicked =renderListWhenClicked;
+
+
+      }
       // vm.pic = vm.place.photos[0].getURL()
       console.log('place', vm.place);
       console.log('location', vm.place.geometry.location);
     }
+
+
+
+
+
     vm.search = function(){
       console.log('clicked searching... ', vm.address);
       this.address = vm.address;
@@ -81,7 +106,7 @@ app.controller('HomeController', function ($scope, $http, NgMap){
       console.log('markers', map.markers);
       console.log('shapes', map.shapes);
     });
-    console.log("all lists: ", $scope.lists);
+    console.log("all lists FROM MAP: ", $scope.lists);
     vm.showData();
 });
 
@@ -193,7 +218,7 @@ function configRoutes($stateProvider, $urlRouterProvider, $locationProvider) {
         resolve: {
           loginRequired: loginRequired
         }
-        
+
       });
 
       function skipIfLoggedIn($q, $auth) {
