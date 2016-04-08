@@ -47,8 +47,7 @@ app.controller('HomeController', function ($scope, $http, NgMap){
       places = selectedList.places;
       // console.log("hi daniel", vm.positions);
       vm.positions = [];
-      // $scope.positions = [];
-      vm.positions.push({pos:[37.777548,-122.438007]})
+      // $scope.positions = []
       places.forEach(function(placeID){
         // console.log("this should be the data for the selectedList", placeID);
         $http
