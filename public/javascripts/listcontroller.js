@@ -14,7 +14,7 @@ app.controller('listcontroller', function($scope, $http){
 
   }
 
-  vm.getAllLists();
+  // vm.getAllLists();
 
   vm.renderListWhenClicked = function (list) {
     console.log("hit render list");

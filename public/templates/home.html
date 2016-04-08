@@ -136,9 +136,9 @@
     <hr/>
     <div ng-controller="listcontroller as lc">
       <div ng-init="lc.getAllLists()">
-        <div ng-repeat="list in lc">
-            <!-- <p> {{lc.all}} </p> -->
-            <p> {{lc.all}} </p>
+        <div ng-repeat="lists in lc">
+
+            <ul> {{lc.all}} </ul>
         </div>
       </div>
     </div>
