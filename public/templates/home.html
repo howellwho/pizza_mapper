@@ -81,31 +81,20 @@
                 <!-- Panel Body -->
                 <div class="panel-body">
                     <!-- Creates Form (novalidate disables HTML validation, Angular will control) -->
-                    <form name ="addForm" novalidate>
-                        <div class="form-group">
-                            <label for="top-lists">Popular Lists</label>
-                              <ul>
-                                <li><input type="checkbox" id="checkbox1" value="Select" ng-model="list" ng-click="vm.renderListWhenClicked()">
-                                  <a href="http://sfist.com/2015/09/17/the_best_pizza_in_san_francisco.php" + target='_blank'>SFist Guide</a></li>
+                    <div ng-init="vm.getAllLists()">
+                      <div ng-repeat="list in lists">
+                          <!-- <ul> {{lc.all}} </ul> -->
+                          <form>
+                            <ul>
+                              <li> <input type="checkbox" id="checkbox1" value="Select" ng-change="vm.renderListWhenClicked({{list}})" ng-model="listInfo">
+                                <a ng-href="{{list.url}}" + target='_blank'>{{list.name}}</a>
 
-                                <li><input type="checkbox" id="checkbox2" value="Select" ng-model="formData2">
-                                  <a href="http://www.yelp.com/search?find_desc=Best+Pizza&find_loc=San+Francisco%2C+CA" + target='_blank'>Yelp SF Top 10</a></li>
+                              </li>
+                            </ul>
+                          </form>
+                      </div>
+                    </div>
 
-                                <li><input type="checkbox" id="checkbox3" value="Select" ng-model="formData3">
-                                  <a href="http://www.yelp.com/search?find_desc=Best+Pizza&find_loc=Oakland,+CA" + target='_blank'>Yelp Oakland Top 10</a></li>
-
-                                <li><input type="checkbox" id="checkbox4" value="Select" ng-model="formData4">
-                                  <a href="http://sf.eater.com/maps/san-franciscos-25-most-iconic-pizzerias" + target='_blank'>Eater SF Top 25</a></li>
-
-                                <li><input type="checkbox" id="checkbox5" value="Select" ng-model="formData5">
-                                  <a href="https://www.thrillist.com/eat/san-francisco/the-best-sf-pizzas-by-hood-thrillist-san-francisco" + target='_blank'>Thrillist Top Pizzas</a></li>
-
-                                <li><input type="checkbox" id="checkbox6" value="Select" ng-model="formData6">
-                                  <a href="http://www.thebolditalic.com/articles/4693-read-this-if-youre-obsessed-with-oaklands-pizza" + target='_blank'>Bold Italic Oakland Pizza's</a></li>
-                              </ul>
-                            <!-- <input type="text" class="form-control" id="language" placeholder="Fortran" ng-model="formData.favlang" required> -->
-                        </div>
-                    </form>
                 </div>
             </div>
         </div>
@@ -134,14 +123,6 @@
         </div>
     </div>
     <hr/>
-    <div ng-controller="listcontroller as lc">
-      <div ng-init="lc.getAllLists()">
-        <div ng-repeat="lists in lc">
-
-            <ul> {{lc.all}} </ul>
-        </div>
-      </div>
-    </div>
     <!-- Footer -->
     <div class="footer">
       <div

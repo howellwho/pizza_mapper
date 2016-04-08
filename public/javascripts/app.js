@@ -23,24 +23,68 @@ app.controller('HomeController', function ($scope, $http, NgMap){
 
 
       }
+      vm.all = [];
+    vm.listInfo = {}
 
-
-    vm.renderListWhenClicked = function (list) {
-      console.log("hit render list");
-      listId = list._id
+    vm.getAllLists = function() {
       $http
-      .get('/lists/api/' + listId)
+      .get('/lists/api')
       .then(function(response){
-        console.log(repsonse.data);
+        console.log("ALL LISTS:", response.data);
         // re render map with new pin data
         // vm.position.push(response.data.places[i])
+        vm.all
+
+        $scope.lists = response.data.lists
       })
 
-
-      // vm.pic = vm.place.photos[0].getURL()
-      console.log('place', vm.place);
-      console.log('location', vm.place.geometry.location);
     }
+
+    // vm.getAllLists();
+
+    vm.renderListWhenClicked = function (selectedList) {
+      console.log("hit render list in HC", selectedList);
+      places = selectedList.places;
+      // console.log("hi daniel", vm.positions);
+      vm.positions = [];
+      // $scope.positions = [];
+      vm.positions.push({pos:[37.777548,-122.438007]})
+      places.forEach(function(placeID){
+        // console.log("this should be the data for the selectedList", placeID);
+        $http
+        .get('/places/api/' + placeID)
+        .then(function(response){
+          // console.log("this should be the data for the selectedList", response.data);
+          // re render map with new pin data
+          console.log("raw data", response.data.place[0]);
+          var rawData = response.data.place[0];
+          var cleanData = {};
+          cleanData._id = rawData._id;
+          cleanData.pos = [rawData.lat, rawData.long];
+          cleanData.name = rawData.name;
+
+          vm.positions.push(cleanData);
+          console.log("vm.positions", vm.positions);
+        })
+      });
+    }
+
+    // vm.renderListWhenClicked = function (list) {
+    //   console.log("hit render list");
+    //   listId = list._id
+    //   $http
+    //   .get('/lists/api/' + listId)
+    //   .then(function(response){
+    //     console.log(response.data);
+    //     // re render map with new pin data
+    //     // vm.position.push(response.data.places[i])
+    //   })
+
+    //
+    //   // vm.pic = vm.place.photos[0].getURL()
+    //   console.log('place', vm.place);
+    //   console.log('location', vm.place.geometry.location);
+    // }
 
 
     vm.search = function(){
@@ -76,7 +120,7 @@ app.controller('HomeController', function ($scope, $http, NgMap){
                         }
                       });
                     })
-                    // console.log("this is vm.positions: ",vm.positions);
+                    // console.log("this is $scope.positions: ",$scope.positions);
                   })
 
 
