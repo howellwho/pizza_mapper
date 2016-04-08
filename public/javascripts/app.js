@@ -40,15 +40,24 @@ app.controller('HomeController', function ($scope, $http, NgMap){
                 // $scope.lists.push(place);
                 $http.get('/places/api/')
                   .then(function(response){
+                    console.log(response.data.places);
                     response.data.places.forEach(function(place){
-                      var placeData = {pos: []};
-                      placeData.pos.push(place.lat, place.long);
-                      // console.log(placeData);
-                      vm.positions.push(placeData);
+                      vm.positions.push({
+                        id: place._id,
+                        pos: [place.lat, place.long],
+                        name: place.name,
+                        phone: place.phone,
+                        website: place.website,
+                        address: place.address,
+                        showDetail: function(e){
+                          this.map.showInfoWindow('joint2', place._id);
+                          console.log("id is ", place._id)
+                        }
+                      });
                     })
-                    console.log("this is vm.positions: ",vm.positions.pos);
-                    // vm.place();
+                    // console.log("this is vm.positions: ",vm.positions);
                   })
+
 
               // })
             // });
