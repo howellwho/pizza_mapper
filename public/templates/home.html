@@ -10,18 +10,18 @@
         <!-- Google Map -->
           <div class="col-md-7">
             <ng-map id="map" center="37.77,-122.43" zoom="11">
+              <!-- search box marker -->
                 <marker id="marker" position="{{vm.address}}"
                   title="{{address}}"
                   on-click="map.showInfoWindow(event, 'joint')">
                 </marker>
+                <!-- search box info window -->
                 <info-window id="joint" visible-on-marker="marker">
                   <div ng-non-bindable="">
-                    <!-- <p><b>Description:</b> -->
                       <h4>{{vm.place.name}}</h4>
                       <span> {{vm.address}} </span><br>
                       <span> {{vm.phone}} </span><br>
                       <span> {{vm.web}} </span>
-                      <!-- <span><img src='{{vm.pic}}'></span> -->
                   </div>
                 </info-window>
 
@@ -31,7 +31,7 @@
                   on-click="p.showDetail(e, place)">
                 </marker>
                 <info-window id="joint2" visible-on-marker="marker">
-                  <div ng-non-bindable="">
+                  <div ng-non-bindable="p in vm.positions">
                     <h4>{{p.name}}</h4>
                     <span> {{p.address}} </span><br>
                     <span> {{p.phone}} </span><br>

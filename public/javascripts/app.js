@@ -193,6 +193,7 @@ function configRoutes($stateProvider, $urlRouterProvider, $locationProvider) {
         resolve: {
           loginRequired: loginRequired
         }
+        
       });
 
       function skipIfLoggedIn($q, $auth) {
