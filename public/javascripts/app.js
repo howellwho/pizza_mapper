@@ -20,8 +20,6 @@ app.controller('HomeController', function ($scope, $http, NgMap){
       vm.phone = vm.place.formatted_phone_number
       vm.web = vm.place.website
       // vm.renderListWhenClicked =renderListWhenClicked;
-
-
       }
     vm.all = [];
     vm.listInfo = {}
@@ -65,7 +63,7 @@ app.controller('HomeController', function ($scope, $http, NgMap){
           cleanData.website = rawData.website;
           cleanData.address = rawData.address;
           cleanData.showDetail = function(map){
-            console.log("daniel")
+            //attempt to render info box
             var specificData = vm.positions.filter(function(p) {
                 return p._id === cleanData._id;
             })[0];
@@ -80,7 +78,6 @@ app.controller('HomeController', function ($scope, $http, NgMap){
           vm.positions.push(cleanData);
           console.log("vm.positions", vm.positions);
         })
-
 
       });
     }
